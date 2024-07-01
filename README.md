@@ -8,7 +8,8 @@ xUI is a UI based on HTML, CSS and JavaScript intended for https://url.x10.bz/. 
 ### Main Page
 https://thedoggybrad.github.io/xUI/index.html
 
-### 404 NOT FOUND PAGE
+### Customizable HTTP Error Page 
+In this case, this page is the 404 NOT FOUND<br>
 https://thedoggybrad.github.io/xUI/404.html
 
 ## Screenshots
