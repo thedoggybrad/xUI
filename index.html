@@ -1,0 +1,230 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xUI - TheDoggyBrad</title>
+<style>
+
+ body {
+        color: #000000;
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+        border-style: solid;
+        border-color: gray;
+        margin-top: 10px; margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+        transition: color 0.3s;
+    }
+
+    p {
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    body.dark-mode {
+        background-color: #121212;
+        color: #fff;
+    }
+
+    body.dark-mode a {
+        color: #bb86fc;
+    }
+
+    body.dark-mode .container {
+        background-color: #292b2f;
+        color: #fff;
+    }
+
+    body.dark-mode h1 {
+        color: #fff;
+    }
+
+    body.dark-mode p {
+        color: #fff; 
+    }
+    .button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    cursor: pointer;
+    }
+    
+    form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"] {
+    font-size: 10px;
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 20px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+  }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <img width="128" height="128" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto" src="https://avatars.githubusercontent.com/u/94173621" alt="LOGO">
+        <h1 style="text-align: center">xUI</h1>
+         <div class="dark-mode-toggle" style="text-align: center">
+    <input type="checkbox" id="dark-mode-toggle-checkbox">
+    <label for="dark-mode-toggle-checkbox">Dark Mode</label>
+  </div>
+
+
+<script>
+    const darkModeToggle = document.getElementById('dark-mode-toggle-checkbox');
+    const body = document.body;
+
+    // Function to set dark mode based on user choice or system preference
+    function setDarkModeBasedOnPreference() {
+        if (localStorage.getItem('darkMode-url-exten') === 'enabled') {
+            // Enable Dark Mode from user's choice
+            darkModeToggle.checked = true;
+            body.classList.add('dark-mode');
+        } else if (localStorage.getItem('darkMode-url-exten') === 'disabled') {
+            // Disable Dark Mode from user's choice
+            darkModeToggle.checked = false;
+            body.classList.remove('dark-mode');
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Enable Dark Mode based on system preference
+            darkModeToggle.checked = true;
+            body.classList.add('dark-mode');
+        } else {
+            // Disable Dark Mode based on system preference
+            darkModeToggle.checked = false;
+            body.classList.remove('dark-mode');
+        }
+    }
+
+    // Check and set dark mode on page load
+    setDarkModeBasedOnPreference();
+
+    // Listen for changes in system preference
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setDarkModeBasedOnPreference);
+
+    darkModeToggle.addEventListener('change', () => {
+        if (darkModeToggle.checked) {
+            // Enable Dark Mode and store the choice
+            body.classList.add('dark-mode');
+            localStorage.setItem('darkMode-url-exten', 'enabled');
+        } else {
+            // Disable Dark Mode and store the choice
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode-url-exten', 'disabled');
+        }
+    });
+    </script>
+
+       <h3>About xUI</h3>
+<p>
+    xUI is a UI based on HTML, CSS and JavaScript intended for <a href="https://url.x10.bz/">https://url.x10.bz/</a>. But as you can see right now, I have open-sourced the UI so that you can use it for your own good. Yes, I have decided to open-source it and no need to attribute to me as I licensed it via MIT-0.<br><br>
+    <button class="button">Example Button</button>
+</p>
+
+<h3>x10 URL Shortening Services on Social Media</h3>
+<ul type="square">
+<li><a href="https://mastodon.social/">Mastodon</a></li>
+<li><a href="https://facebook.com/">Facebook</a></li>
+</ul>
+
+<h3>Form</h3>
+<p>
+  <form id="shorten-form" action="shorten.php" method="post">
+    <label>Enter a valid URL:</label>
+    <input type="text" id="url" name="url" required>
+</p><br><br>
+<h3>Lorem Ipsum</h3>
+    <ul type="disc">
+        <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac ex in magna bibendum ornare non vel quam. Nullam luctus eros quis enim iaculis facilisis. In hac habitasse platea dictumst. Vestibulum at semper diam. Aenean eu dui eu lorem commodo aliquet. Cras dolor nulla, commodo quis consectetur quis, porta a libero. In laoreet nec nulla vitae imperdiet. Sed varius consectetur lectus vel cursus. </li>
+        <li>Maecenas sed faucibus enim. Morbi accumsan nunc eget suscipit dapibus. Donec maximus ullamcorper erat, nec feugiat nisl porta vel. Aliquam eu erat volutpat, cursus elit luctus, condimentum enim. Praesent pharetra viverra mi, quis faucibus leo maximus ac. In ante ante, sollicitudin a est sit amet, pretium euismod diam. Proin turpis est, tempor vitae mollis et, egestas vel sapien. </li>
+        <li>Ut sollicitudin et ante vitae malesuada. Aliquam sapien mauris, commodo vel volutpat cursus, pretium ut ipsum. Quisque interdum bibendum ipsum, et hendrerit sem congue eu. Maecenas ut massa vitae tellus auctor feugiat. Sed mollis rutrum tristique. Duis ullamcorper molestie feugiat. Fusce est elit, mattis sed vulputate vestibulum, ultrices in lectus. Pellentesque eget pellentesque neque. Maecenas blandit lorem eget commodo posuere. Pellentesque ultricies mi ac nibh eleifend tempor. Maecenas et ipsum eget dui tristique blandit et tincidunt elit. Integer sed ligula et nisi dignissim interdum. Nulla a mollis justo. Sed dignissim laoreet velit eu lobortis. "</li>
+        <li>Nulla vitae auctor tellus. Sed metus nulla, ornare convallis vulputate consequat, convallis finibus est. Donec sollicitudin, nisl ac molestie interdum, odio neque auctor erat, sit amet pulvinar lacus odio ut massa. Cras ultrices semper mauris, eget ornare dui rhoncus nec. Fusce eleifend sed sapien eu suscipit. Mauris nec commodo metus. Etiam sapien lacus, rutrum ac rutrum vitae, lobortis at nibh. Vivamus nec risus ut ex rhoncus laoreet quis sed urna. Nunc bibendum sagittis urna, sit amet feugiat sem. Pellentesque vestibulum tellus vel arcu aliquam pretium. Etiam mollis efficitur urna at molestie. Nulla facilisi. Cras vitae magna porta lectus aliquam tristique in sed est. Vivamus massa metus, elementum a orci quis, congue dapibus metus. Curabitur cursus eget metus eget mattis. </li>
+        <li>Donec pretium ante a neque rhoncus, vel commodo nunc posuere. Quisque varius, urna eu ultricies laoreet, elit ex ullamcorper ipsum, nec molestie nisl dui eget lorem. Fusce blandit posuere velit, ac eleifend lorem vehicula id. Aenean quis felis enim. Aliquam erat volutpat. Donec interdum lacus sit amet ornare cursus. Pellentesque erat est, tincidunt id nulla quis, pulvinar suscipit mauris. Ut porttitor nibh lectus, vitae hendrerit est gravida et. Integer aliquam, orci ac vulputate tristique, est velit porttitor est, quis pulvinar nunc tortor vel risus. Ut pellentesque in tellus non euismod. Aenean auctor elit sit amet ante porta, eu commodo neque cursus. Vivamus risus mauris, tempus in aliquam vel, volutpat eu sapien. Nulla sollicitudin imperdiet purus, nec convallis lectus. </li>
+    </ul>
+
+<h3>Lorem Amet</h3>
+<p>
+Lorem ipsum dolor sit amet, consectetur adipiscing elit. Morbi dapibus suscipit ultrices. Suspendisse potenti. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec a ante dolor. Nullam quis mauris egestas erat mollis accumsan et eu velit. Morbi lacinia iaculis ultricies. Sed scelerisque gravida egestas. Nullam laoreet ipsum sit amet erat imperdiet tristique. Phasellus placerat eros feugiat mauris congue, eget feugiat eros hendrerit. Praesent eleifend vehicula nulla. Praesent orci enim, malesuada eget ante vitae, placerat cursus massa. Nam rutrum sapien in nisl tristique molestie. Ut sapien sapien, dictum id accumsan vehicula, pharetra id lectus. Nulla bibendum ornare bibendum. 
+</p>
+
+<h3>Nulla Quis</h3>
+<p>
+Nulla quis dui nunc. Nullam quis nibh eget justo venenatis ornare. Phasellus elementum ante ut rhoncus facilisis. Aenean leo magna, aliquam in rhoncus eget, euismod nec mauris. Morbi nisl mi, molestie et iaculis sit amet, commodo in urna. Integer urna nibh, aliquet eu tincidunt id, lobortis a massa. In sodales, nibh vel elementum congue, sapien felis vehicula dolor, et porta ex leo at ante. Proin viverra ligula magna. Aenean vel neque eget turpis aliquam egestas et eu risus. Pellentesque et nulla nec orci accumsan finibus. Duis vel condimentum tellus. Duis ullamcorper sollicitudin ex, non sagittis lectus efficitur quis. 
+</p>
+
+
+<h3>Ut Orci Nisl</h3>
+    The organization is mandated to:
+    <ol type="1">
+        <li>In ut eleifend orci. Pellentesque dignissim neque nisl, porttitor pulvinar orci vehicula ut. Nunc eu libero elementum, posuere augue venenatis, bibendum quam. Vivamus vestibulum lacinia diam, vitae facilisis arcu laoreet viverra. Vestibulum vel est lorem. Fusce tincidunt nunc urna, in viverra justo ultrices sit amet. Cras ullamcorper iaculis nisl. Nam sollicitudin elit scelerisque sem pellentesque, non aliquet eros scelerisque. Sed id iaculis mi. Nulla arcu justo, dapibus non commodo non, malesuada sit amet urna. </li>
+        <li>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; In pellentesque nibh quis sem egestas rutrum. Vivamus rutrum quis diam eu fermentum. Integer vitae nisl sit amet massa volutpat interdum porta ac nisl. Praesent lobortis, ante elementum dignissim aliquam, ligula quam accumsan ipsum, ornare viverra magna felis non lorem. Integer tincidunt quam tempus sagittis mollis. Duis non fermentum turpis, efficitur commodo nisl.</li>
+        <li>Duis lectus eros, ornare quis turpis vitae, lacinia fermentum nunc. Duis risus libero, luctus a imperdiet euismod, aliquam id augue. Nulla facilisi. Fusce euismod leo non arcu scelerisque ultrices. Cras dolor arcu, facilisis non diam quis, aliquam efficitur sem. Proin finibus id tortor vitae fringilla. Sed eget consectetur metus. In at dui a libero dictum placerat. Orci varius natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus.</li>
+        <li>Morbi ac aliquam mi. Quisque euismod orci tristique, auctor orci non, aliquam erat. In accumsan tortor eget nisl sollicitudin facilisis. Donec pulvinar porttitor mauris, at fringilla velit. Maecenas augue urna, ultricies eu tortor quis, semper auctor neque. Curabitur sit amet ante gravida, malesuada tortor eu, porta orci. Suspendisse et dictum leo. Donec viverra est enim, vitae accumsan eros egestas sit amet. Curabitur laoreet sit amet dui id pharetra. Proin porttitor magna luctus velit vehicula cursus. </li>
+    </ol>
+
+<h3>Software License</h3>
+<p>MIT No Attribution
+<br><br>
+Copyright 2024 TheDoggyBrad Software Labs
+<br><br>
+Permission is hereby granted, free of charge, to any person obtaining a copy of this
+software and associated documentation files (the "Software"), to deal in the Software
+without restriction, including without limitation the rights to use, copy, modify,
+merge, publish, distribute, sublicense, and/or sell copies of the Software, and to
+permit persons to whom the Software is furnished to do so.
+<br><br>
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED,
+INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A
+PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT
+HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION
+OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE
+SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
+
+<h3>Contact Us</h3>
+<p>For any concerns, you may contact us via our email address at <a href="mailto:admin@example.com">admin@example.com</a></p>
+
+
+    <footer style="margin-top: 50px; text-align: center; -webkit-user-select: none; -ms-user-select: none; user-select: none;">
+            <p><a href="https://example.com">Home</a>&nbsp;&nbsp;&nbsp;<a href="https://example.com">About us</a>&nbsp;&nbsp;&nbsp;<a href="https://example.com">User Manual</a></p>
+         <p><a href="https://example.com">Privacy Policy</a>&nbsp;&nbsp;&nbsp;<a href="https://example.com">Terms of Service</a></p>
+            <p>&copy;2023-<span id="currentYear"></span>TheDoggyBrad Software Labs. All rights reserved.</p>
+        </footer>
+<script>
+    // JavaScript code to update the current year
+    const currentYear = new Date().getFullYear();
+    document.getElementById("currentYear").textContent = currentYear;
+</script>
+        </div>
+</body>
+</html>
