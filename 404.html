@@ -1,0 +1,173 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>xUI - TheDoggyBrad</title>
+<style>
+
+ body {
+        color: #000000;
+        font-family: Arial, sans-serif;
+        background-color: #f3f3f3;
+        margin: 0;
+        padding: 0;
+        transition: background-color 0.3s, color 0.3s;
+    }
+
+    .container {
+        max-width: 800px;
+        margin: 0 auto;
+        padding: 20px;
+        background-color: #fff;
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        transition: background-color 0.3s, color 0.3s;
+        border-style: solid;
+        border-color: gray;
+        margin-top: 10px; margin-bottom: 10px;
+    }
+
+    h1 {
+        font-size: 28px;
+        transition: color 0.3s;
+    }
+
+    p {
+        font-size: 16px;
+        transition: color 0.3s;
+    }
+
+    body.dark-mode {
+        background-color: #121212;
+        color: #fff;
+    }
+
+    body.dark-mode a {
+        color: #bb86fc;
+    }
+
+    body.dark-mode .container {
+        background-color: #292b2f;
+        color: #fff;
+    }
+
+    body.dark-mode h1 {
+        color: #fff;
+    }
+
+    body.dark-mode p {
+        color: #fff; 
+    }
+    .button {
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    cursor: pointer;
+    }
+    
+    form {
+    display: flex;
+    flex-direction: column;
+  }
+
+  label {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
+
+  input[type="text"] {
+    font-size: 10px;
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 20px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+  }
+   </style>
+</head>
+<body>
+    <div class="container">
+        <img width="128" height="128" style="margin-top: 20px; display: block; margin-left: auto; margin-right: auto" src="https://avatars.githubusercontent.com/u/94173621" alt="LOGO">
+        <h1 style="text-align: center">xUI</h1>
+         <div class="dark-mode-toggle" style="text-align: center">
+    <input type="checkbox" id="dark-mode-toggle-checkbox">
+    <label for="dark-mode-toggle-checkbox">Dark Mode</label>
+  </div>
+
+
+<script>
+    const darkModeToggle = document.getElementById('dark-mode-toggle-checkbox');
+    const body = document.body;
+
+    // Function to set dark mode based on user choice or system preference
+    function setDarkModeBasedOnPreference() {
+        if (localStorage.getItem('darkMode-xui') === 'enabled') {
+            // Enable Dark Mode from user's choice
+            darkModeToggle.checked = true;
+            body.classList.add('dark-mode');
+        } else if (localStorage.getItem('darkMode-xui') === 'disabled') {
+            // Disable Dark Mode from user's choice
+            darkModeToggle.checked = false;
+            body.classList.remove('dark-mode');
+        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+            // Enable Dark Mode based on system preference
+            darkModeToggle.checked = true;
+            body.classList.add('dark-mode');
+        } else {
+            // Disable Dark Mode based on system preference
+            darkModeToggle.checked = false;
+            body.classList.remove('dark-mode');
+        }
+    }
+
+    // Check and set dark mode on page load
+    setDarkModeBasedOnPreference();
+
+    // Listen for changes in system preference
+    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setDarkModeBasedOnPreference);
+
+    darkModeToggle.addEventListener('change', () => {
+        if (darkModeToggle.checked) {
+            // Enable Dark Mode and store the choice
+            body.classList.add('dark-mode');
+            localStorage.setItem('darkMode-xui', 'enabled');
+        } else {
+            // Disable Dark Mode and store the choice
+            body.classList.remove('dark-mode');
+            localStorage.setItem('darkMode-xui', 'disabled');
+        }
+    });
+    </script>
+
+
+<br><br>
+                <h1 style="text-align: center; margin-bottom: 3px; margin-top: 5px; font-size: 50px;">404 NOT FOUND</h2>
+        <h3 style="text-align: center; margin-top: 3px;">The content you are looking for is not located here.</h3>
+        
+<br><br><br>
+  <h3 style="text-align:center">Maybe, it's time for you to start something new in the homepage.</h3>
+    
+<div style="text-align: center;"><br>
+<a class="button" style="background-color: #4CAF50; color: white; padding: 14px 25px; text-align: center; text-decoration: none; display: inline-block; font-size: 20px;" href="https://example.com">Go back to the Homepage</a>
+
+
+    <footer style="margin-top: 50px; text-align: center; -webkit-user-select: none; -ms-user-select: none; user-select: none;">
+            <p><a href="https://example.com">Home</a>&nbsp;&nbsp;&nbsp;<a href="https://example.com">About us</a>&nbsp;&nbsp;&nbsp;<a href="https://example.com">User Manual</a></p>
+         <p><a href="https://example.com">Privacy Policy</a>&nbsp;&nbsp;&nbsp;<a href="https://example.com">Terms of Service</a></p>
+            <p>Powered by <a href="https://github.com/thedoggybrad/xUI">xUI</a>.<br>&copy;2023-<span id="currentYear"></span>TheDoggyBrad Software Labs. All rights reserved.</p>
+        </footer>
+<script>
+    // JavaScript code to update the current year
+    const currentYear = new Date().getFullYear();
+    document.getElementById("currentYear").textContent = currentYear;
+</script>
+        </div>
+</body>
+</html>
