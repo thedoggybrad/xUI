@@ -108,11 +108,11 @@
 
     // Function to set dark mode based on user choice or system preference
     function setDarkModeBasedOnPreference() {
-        if (localStorage.getItem('darkMode-url-exten') === 'enabled') {
+        if (localStorage.getItem('darkMode-xui') === 'enabled') {
             // Enable Dark Mode from user's choice
             darkModeToggle.checked = true;
             body.classList.add('dark-mode');
-        } else if (localStorage.getItem('darkMode-url-exten') === 'disabled') {
+        } else if (localStorage.getItem('darkMode-xui') === 'disabled') {
             // Disable Dark Mode from user's choice
             darkModeToggle.checked = false;
             body.classList.remove('dark-mode');
