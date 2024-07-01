@@ -214,6 +214,28 @@ SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.</p>
 <h3>Contact Us</h3>
 <p>For any concerns, you may contact us via our email address at <a href="mailto:admin@example.com">admin@example.com</a></p>
 
+<h3>Dark Mode Preference</h3>
+<p>
+For you to remove the dark mode preference, <a href="#"id="delete-cookie-link" onclick="deleteDarkModeCookieWithConfirmation(); return false;">here</a>.
+              
+              
+              <script>
+                        // Function to delete the "dark-mode-url-exten" cookie with confirmation
+        function deleteDarkModeCookieWithConfirmation() {
+            // Display a confirmation dialog
+            var isConfirmed = confirm('Are you sure you want to delete the "darkMode-xui" cookie and reset your dark mode preference?');
+
+            // Check if the user confirmed
+            if (isConfirmed) {
+                localStorage.removeItem('darkMode-xui');
+                // You may also want to update the UI to reflect the changes after deleting the cookie
+                alert('The cookie "darkMode-xui" has been deleted, and your dark mode preference has been reset.');
+            } else {
+                // If the user cancels, you can provide feedback or take alternative actions
+                alert('The deletion of the "darkMode-xui" cookie and the reset of dark mode preference was canceled.');
+            }
+        }
+</script>
 
     <footer style="margin-top: 50px; text-align: center; -webkit-user-select: none; -ms-user-select: none; user-select: none;">
             <p><a href="https://example.com">Home</a>&nbsp;&nbsp;&nbsp;<a href="https://example.com">About us</a>&nbsp;&nbsp;&nbsp;<a href="https://example.com">User Manual</a></p>
