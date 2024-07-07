@@ -1,7 +1,7 @@
 # xUI
 The UI originally used by x10 URL Shortening Services, is now open-source.
 
-## Bried Information
+## Brief Information
 xUI is a UI based on HTML, CSS and JavaScript intended for https://url.x10.bz/. But as you can see right now, I have open-sourced the UI so that you can use it for your own good. Yes, I have decided to open-source it and no need to attribute to me as I licensed it via MIT-0.
 
 ## Try it 
