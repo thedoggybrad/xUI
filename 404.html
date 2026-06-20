@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>404 NOT FOUND - xUI - TheDoggyBrad</title>
 <style>
+    
     body {
         color: #000000;
         font-family: Arial, sans-serif;
@@ -26,10 +27,11 @@
         margin-top: 20px; 
         margin-bottom: 20px;
         border-radius: 25px;
+    }
 
     .container.dark-mode {
         border-color: #ffffff;
-      }
+    }
 
     h1 {
         font-size: 28px;
@@ -87,23 +89,23 @@
     }
 
     input[type="text"] {
-        font-size: 16px;
-        padding: 10px;
+        font-size: 10px;
+        padding: 5px;
         width: 300px;
         margin-bottom: 20px;
         border: 2px;
-        border-color: #000000;
+        border-color: black;
         border-style: solid;
         border-radius: 25px;
-      }
-    
+    }
+
     body.dark-mode input[type="text"] {
         border-color: #ffffff;
-      }
+    }
 
     button {
         border-radius: 25px;
-      }
+    }
    </style>
 </head>
 <body>
@@ -134,10 +136,10 @@ function applyDarkMode(enabled) {
 function setDarkModeBasedOnPreference() {
     let isDarkMode = false;
 
-    if (localStorage.getItem('darkMode-url-exten') === 'enabled') {
+    if (localStorage.getItem('darkMode-xui') === 'enabled') {
         darkModeToggle.checked = true;
         isDarkMode = true;
-    } else if (localStorage.getItem('darkMode-url-exten') === 'disabled') {
+    } else if (localStorage.getItem('darkMode-xui') === 'disabled') {
         darkModeToggle.checked = false;
         isDarkMode = false;
     } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
@@ -164,7 +166,7 @@ darkModeToggle.addEventListener('change', () => {
     applyDarkMode(isDarkMode);
 
     localStorage.setItem(
-        'darkMode-url-exten',
+        'darkMode-xui',
         isDarkMode ? 'enabled' : 'disabled'
     );
 });
