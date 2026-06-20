@@ -60,42 +60,48 @@
     body.dark-mode p {
         color: #fff; 
     }
+    
     .button {
-    font-size: 16px;
-    padding: 10px 20px;
-    background-color: #4CAF50;
-    border: none;
-    color: white;
-    text-align: center;
-    text-decoration: none;
-    display: inline-block;
-    margin: 4px;
-    cursor: pointer;
+        font-size: 16px;
+        padding: 10px 20px;
+        background-color: #4CAF50;
+        border: none;
+        color: white;
+        text-align: center;
+        text-decoration: none;
+        display: inline-block;
+        margin: 4px;
+        cursor: pointer;
     }
     
     form {
-    display: flex;
-    flex-direction: column;
-  }
+        display: flex;
+        flex-direction: column;
+    }
 
-  label {
-    font-size: 20px;
-    margin-bottom: 10px;
-  }
+    label {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
 
-  input[type="text"] {
-    font-size: 10px;
-    padding: 5px;
-    width: 300px;
-    margin-bottom: 20px;
-    border: 2px;
-    border-color: black;
-    border-style: solid;
-  }
+    input[type="text"] {
+        font-size: 16px;
+        padding: 10px;
+        width: 300px;
+        margin-bottom: 20px;
+        border: 2px;
+        border-color: #000000;
+        border-style: solid;
+        border-radius: 25px;
+      }
+    
+    body.dark-mode input[type="text"] {
+        border-color: #ffffff;
+      }
 
-  button {
-    border-radius: 25px;
-  }
+      button {
+        border-radius: 25px;
+      }
    </style>
 </head>
 <body>
@@ -109,47 +115,57 @@
 
 
 <script>
-    const darkModeToggle = document.getElementById('dark-mode-toggle-checkbox');
-    const body = document.body;
+const darkModeToggle = document.getElementById('dark-mode-toggle-checkbox');
+const body = document.body;
+const containers = document.querySelectorAll('.container');
+const textInputs = document.querySelectorAll('input[type="text"]');
 
-    // Function to set dark mode based on user choice or system preference
-    function setDarkModeBasedOnPreference() {
-        if (localStorage.getItem('darkMode-xui') === 'enabled') {
-            // Enable Dark Mode from user's choice
-            darkModeToggle.checked = true;
-            body.classList.add('dark-mode');
-        } else if (localStorage.getItem('darkMode-xui') === 'disabled') {
-            // Disable Dark Mode from user's choice
-            darkModeToggle.checked = false;
-            body.classList.remove('dark-mode');
-        } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            // Enable Dark Mode based on system preference
-            darkModeToggle.checked = true;
-            body.classList.add('dark-mode');
-        } else {
-            // Disable Dark Mode based on system preference
-            darkModeToggle.checked = false;
-            body.classList.remove('dark-mode');
-        }
+function applyDarkMode(enabled) {
+    body.classList.toggle('dark-mode', enabled);
+
+    containers.forEach(container => {
+        container.classList.toggle('dark-mode', enabled);
+    });
+}
+
+// Function to set dark mode based on user choice or system preference
+function setDarkModeBasedOnPreference() {
+    let isDarkMode = false;
+
+    if (localStorage.getItem('darkMode-url-exten') === 'enabled') {
+        darkModeToggle.checked = true;
+        isDarkMode = true;
+    } else if (localStorage.getItem('darkMode-url-exten') === 'disabled') {
+        darkModeToggle.checked = false;
+        isDarkMode = false;
+    } else if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        darkModeToggle.checked = true;
+        isDarkMode = true;
+    } else {
+        darkModeToggle.checked = false;
+        isDarkMode = false;
     }
 
-    // Check and set dark mode on page load
-    setDarkModeBasedOnPreference();
+    applyDarkMode(isDarkMode);
+}
 
-    // Listen for changes in system preference
-    window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', setDarkModeBasedOnPreference);
+// Check and set dark mode on page load
+setDarkModeBasedOnPreference();
 
-    darkModeToggle.addEventListener('change', () => {
-        if (darkModeToggle.checked) {
-            // Enable Dark Mode and store the choice
-            body.classList.add('dark-mode');
-            localStorage.setItem('darkMode-xui', 'enabled');
-        } else {
-            // Disable Dark Mode and store the choice
-            body.classList.remove('dark-mode');
-            localStorage.setItem('darkMode-xui', 'disabled');
-        }
-    });
+// Listen for changes in system preference
+window.matchMedia('(prefers-color-scheme: dark)')
+    .addEventListener('change', setDarkModeBasedOnPreference);
+
+darkModeToggle.addEventListener('change', () => {
+    const isDarkMode = darkModeToggle.checked;
+
+    applyDarkMode(isDarkMode);
+
+    localStorage.setItem(
+        'darkMode-url-exten',
+        isDarkMode ? 'enabled' : 'disabled'
+    );
+});
     </script>
 
        <h3>About xUI</h3>
