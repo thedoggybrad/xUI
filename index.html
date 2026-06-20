@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>xUI - TheDoggyBrad</title>
 <style>
+    
     body {
         color: #000000;
         font-family: Arial, sans-serif;
@@ -22,14 +23,11 @@
         box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
         transition: background-color 0.3s, color 0.3s;
         border-style: solid;
-        border-color: #000000;
+        border-color: #ffffff;
         margin-top: 20px; 
         margin-bottom: 20px;
         border-radius: 25px;
-
-    .container.dark-mode {
-        border-color: #ffffff;
-      }
+    }
 
     h1 {
         font-size: 28px;
@@ -62,48 +60,42 @@
     body.dark-mode p {
         color: #fff; 
     }
-    
     .button {
-        font-size: 16px;
-        padding: 10px 20px;
-        background-color: #4CAF50;
-        border: none;
-        color: white;
-        text-align: center;
-        text-decoration: none;
-        display: inline-block;
-        margin: 4px;
-        cursor: pointer;
+    font-size: 16px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    border: none;
+    color: white;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    margin: 4px;
+    cursor: pointer;
     }
     
     form {
-        display: flex;
-        flex-direction: column;
-    }
+    display: flex;
+    flex-direction: column;
+  }
 
-    label {
-        font-size: 20px;
-        margin-bottom: 10px;
-    }
+  label {
+    font-size: 20px;
+    margin-bottom: 10px;
+  }
 
-    input[type="text"] {
-        font-size: 16px;
-        padding: 10px;
-        width: 300px;
-        margin-bottom: 20px;
-        border: 2px;
-        border-color: #000000;
-        border-style: solid;
-        border-radius: 25px;
-      }
-    
-    body.dark-mode input[type="text"] {
-        border-color: #ffffff;
-      }
+  input[type="text"] {
+    font-size: 10px;
+    padding: 5px;
+    width: 300px;
+    margin-bottom: 20px;
+    border: 2px;
+    border-color: black;
+    border-style: solid;
+  }
 
-    button {
-        border-radius: 25px;
-      }
+  button {
+    border-radius: 25px;
+  }
    </style>
 </head>
 <body>
@@ -114,6 +106,7 @@
     <input type="checkbox" id="dark-mode-toggle-checkbox">
     <label for="dark-mode-toggle-checkbox">Dark Mode</label>
   </div>
+
 
 <script>
     const darkModeToggle = document.getElementById('dark-mode-toggle-checkbox');
@@ -179,7 +172,7 @@
   <form id="shorten-form" action="shorten.php" method="post">
     <label>Enter a valid URL:</label>
     <input type="text" id="url" name="url" required>
-</p>
+</p><br><br>
 <h3>Lorem Ipsum</h3>
     <ul type="disc">
         <li>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Suspendisse ac ex in magna bibendum ornare non vel quam. Nullam luctus eros quis enim iaculis facilisis. In hac habitasse platea dictumst. Vestibulum at semper diam. Aenean eu dui eu lorem commodo aliquet. Cras dolor nulla, commodo quis consectetur quis, porta a libero. In laoreet nec nulla vitae imperdiet. Sed varius consectetur lectus vel cursus. </li>
